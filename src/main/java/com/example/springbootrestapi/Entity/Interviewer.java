@@ -22,15 +22,28 @@ public class Interviewer {
     @Column(name = "date")
     private String date;
 
+    @OneToOne(mappedBy = "name_id")
+    private Interview interview;
+
     public Interviewer(String name, String surname, String vacancy, String date) {
         this.name = name;
         this.surname = surname;
         this.vacancy = vacancy;
         this.date = date;
     }
+
+    public Interview getInterview() {
+        return interview;
+    }
+
+    public void setInterview(Interview interview) {
+        this.interview = interview;
+    }
+
     public Interviewer(){
 
     }
+
     public int getId() {
         return id;
     }

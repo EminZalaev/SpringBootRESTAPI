@@ -13,15 +13,23 @@ public class Interview {
     @Column(name = "cabinet")
     private int cabinet;
 
-    @Column(name = "interviewername")
-    private String interviewername;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Name_id")
+    private Interview name_id;
 
-    public Interview(String name, int cabinet, String interviewerName) {
+    public Interview(int cabinet) {
         this.cabinet = cabinet;
-        this.interviewername = interviewername;
     }
 
     public Interview() {
+    }
+
+    public Interview getName_id() {
+        return name_id;
+    }
+
+    public void setName_id(Interview name_id) {
+        this.name_id = name_id;
     }
 
     public int getId() {
@@ -38,13 +46,5 @@ public class Interview {
 
     public void setCabinet(int cabinet) {
         this.cabinet = cabinet;
-    }
-
-    public String getInterviewerName() {
-        return interviewername;
-    }
-
-    public void setInterviewerName(String interviewerName) {
-        this.interviewername = interviewerName;
     }
 }
