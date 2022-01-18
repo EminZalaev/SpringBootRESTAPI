@@ -22,7 +22,7 @@ public class Interviewer {
     @Column(name = "date")
     private String date;
 
-    @OneToOne(mappedBy = "name_id")
+    @OneToOne(mappedBy = "name_id", cascade = CascadeType.ALL)
     private Interview interview;
 
     public Interviewer(String name, String surname, String vacancy, String date) {
